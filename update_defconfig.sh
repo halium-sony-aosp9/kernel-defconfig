@@ -78,7 +78,9 @@ for device in $DEVICE; do \
             ${KERNEL_CFG}/android-base.config \
             ${KERNEL_CFG}/android-base-arm64.config \
             ${KERNEL_CFG}/android-recommended.config \
-            ${KERNEL_CFG}/android-extra.config 2>&1);
+            ${KERNEL_CFG}/android-extra.config \
+            ${KERNEL_CFG}/halium.config \
+            ${KERNEL_CFG}/halium-extra.config 2>&1);
     else
         ret=$(ARCH=arm64 O=${KERNEL_TMP} scripts/kconfig/merge_config.sh \
             ${KERNEL_CFG}/base_fb_defconfig \
@@ -87,7 +89,9 @@ for device in $DEVICE; do \
             ${KERNEL_CFG}/android-base.config \
             ${KERNEL_CFG}/android-base-arm64.config \
             ${KERNEL_CFG}/android-recommended.config \
-            ${KERNEL_CFG}/android-extra.config 2>&1);
+            ${KERNEL_CFG}/android-extra.config \
+            ${KERNEL_CFG}/halium.config \
+            ${KERNEL_CFG}/halium-extra.config 2>&1);
     fi
 
     case "$ret" in
